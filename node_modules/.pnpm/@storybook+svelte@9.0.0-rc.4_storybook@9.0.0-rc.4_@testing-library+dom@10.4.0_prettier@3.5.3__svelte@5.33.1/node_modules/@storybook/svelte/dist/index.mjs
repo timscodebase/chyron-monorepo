@@ -1,0 +1,9 @@
+import { entry_preview_exports, renderToCanvas } from './chunk-JUVUTBRS.mjs';
+import './chunk-CEH6MNVV.mjs';
+import PreviewRender from '@storybook/svelte/internal/PreviewRender.svelte';
+import { createReactiveProps } from '@storybook/svelte/internal/createReactiveProps';
+import { setDefaultProjectAnnotations, setProjectAnnotations as setProjectAnnotations$1, composeStory as composeStory$1, composeStories as composeStories$1 } from 'storybook/preview-api';
+
+globalThis.STORYBOOK_ENV="svelte";function setProjectAnnotations(projectAnnotations){return setDefaultProjectAnnotations(INTERNAL_DEFAULT_PROJECT_ANNOTATIONS),setProjectAnnotations$1(projectAnnotations)}var INTERNAL_DEFAULT_PROJECT_ANNOTATIONS={...entry_preview_exports,renderToCanvas:(renderContext,canvasElement)=>{if(renderContext.storyContext.testingLibraryRender==null)return renderToCanvas(renderContext,canvasElement);let{storyFn,storyContext:{testingLibraryRender:render}}=renderContext,{Component,props}=storyFn(),{unmount}=render(Component,{props,target:canvasElement});return unmount}};function composeStory(story,componentAnnotations,projectAnnotations,exportsName){let composedStory=composeStory$1(story,componentAnnotations,projectAnnotations,globalThis.globalProjectAnnotations??INTERNAL_DEFAULT_PROJECT_ANNOTATIONS,exportsName),props=createReactiveProps({storyFn:composedStory,storyContext:{...composedStory},name:composedStory.storyName,title:composedStory.id,showError:()=>{}}),renderable={Component:PreviewRender,props};return Object.assign(renderable,composedStory),renderable}function composeStories(csfExports,projectAnnotations){return composeStories$1(csfExports,projectAnnotations,composeStory)}
+
+export { INTERNAL_DEFAULT_PROJECT_ANNOTATIONS, composeStories, composeStory, setProjectAnnotations };
